@@ -12,7 +12,7 @@ def get_requirements(file_path:str)->List[str]:
         requirements = file_obj.readlines()
         requirements = [req.replace("\n","") for req in requirements]
     
-    #The "-e ." in requirements.txt is to connect it to the stup.py, so we dont need it here
+    #The "-e ." in requirements.txt is to connect it to the setup.py, so we dont need it here
 
     if constant in requirements:
         requirements.remove(constant)
