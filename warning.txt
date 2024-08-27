@@ -1,0 +1,33 @@
+1.) warning: in the working copy of 'Notebook/Dataset/stud.csv', LF will be replaced by CRLF the next time Git touches
+This warning is related to line endings in text files when using Git, specifically the difference between 
+Unix-style line endings (LF) and Windows-style line endings (CRLF).
+
+Here’s what could be causing the warning:
+
+1. DIFFERENT OPERATING SYSTEMS: If you’re working on a project across different operating systems 
+(e.g., Linux or macOS uses LF, while Windows uses CRLF), Git is trying to manage these differences.
+
+2. GIT'S AUTO CRLF CONVERSION: Git has a setting called `core.autocrlf` which automatically converts 
+LF to CRLF when checking out text files on Windows and back to LF when committing. The warning is indicating 
+that Git will replace LF with CRLF the next time it interacts with the file.
+
+3. MIXED LINE ENDINGS: If the file has mixed line endings (some lines ending with LF, others with CRLF),
+ Git could be issuing this warning to alert you that it's going to standardize the file's line endings.
+
+SOLUTIONS:
+
+ENSURE CONSISTENT LINE ENDINGS: You can normalize the line endings across your project by running:
+'''
+  git add --renormalize .
+  git commit -m "Normalize line endings"
+'''
+ADJUST GIT SETTINGS: You can configure Git to handle line endings differently by setting `core.autocrlf` to 
+`true`, `false`, or `input` depending on your needs:
+ '''
+  git config --global core.autocrlf true
+ '''
+  - true: Convert LF to CRLF on checkout, and CRLF to LF on commit (recommended for Windows).
+  - input: Convert CRLF to LF on commit, but leave LF on checkout (recommended for Unix systems).
+  - false: Leave line endings as they are.
+
+Choosing the right setting based on your operating system and team environment can prevent these warnings.
