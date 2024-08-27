@@ -31,3 +31,10 @@ ADJUST GIT SETTINGS: You can configure Git to handle line endings differently by
   - false: Leave line endings as they are.
 
 Choosing the right setting based on your operating system and team environment can prevent these warnings.
+
+2.) print("Categories in the column gender:",  end =" ", df["gender"].unique())
+SyntaxError: positional argument follows keyword argument
+
+The error you're encountering occurs because you're trying to use a positional argument (df["gender"].unique()) 
+after a keyword argument (end=" "). In Python, positional arguments should always come before keyword arguments.
+
