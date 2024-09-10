@@ -7,10 +7,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
-'''from source.components.data_transformation import DataTransformation
+from source.components.data_transformation import DataTransformation
 from source.components.data_transformation import DataTransformationConfig
 
-from source.components.model_trainer import ModelTrainerConfig
+'''from source.components.model_trainer import ModelTrainerConfig
 from source.components.model_trainer import ModelTrainer'''
 @dataclass
 class DataIngestionConfig:
@@ -34,6 +34,7 @@ class DataIngestion:
             
             logging.info('Read the dataset as dataframe')
 
+            #This line actually make sures that the file artifacts gets created...
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
 
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
@@ -65,10 +66,10 @@ if __name__=="__main__":
     obj=DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion()
 
-    '''data_transformation=DataTransformation()
-    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+    data_transformation=DataTransformation()
+    train_arr,test_arr,_= data_transformation.initiate_data_transformation(train_data,test_data)
 
-    modeltrainer=ModelTrainer()
+    '''modeltrainer=ModelTrainer()
     print(modeltrainer.initiate_model_trainer(train_arr,test_arr))'''
 
 
