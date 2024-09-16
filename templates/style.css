@@ -1,0 +1,97 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #4CAF50;
+}
+
+.login {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 450px;
+    margin: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #333;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+legend {
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .login {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Exam Performance Indicator</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="templates/style.css">
+</head>
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #4CAF50;
+}
+
+.login {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 450px;
+    margin: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #333;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+legend {
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .login {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+</style>
+<body>
+    <div class="login">
+       <h1>Student Exam Performance Indicator</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Student Exam Performance Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="gender" placeholder="Enter your Gender" required>
+                <option class="placeholder" selected disabled value="">Select your Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Race or Ethnicity</label>
+            <select class="form-control" name="ethnicity" placeholder="Enter your ethnicity" required>
+                <option class="placeholder" selected disabled value="">Select Ethnicity</option>
+                <option value="group A">Group A</option>
+                <option value="group B">Group B</option>
+                <option value="group C">Group C</option>
+                <option value="group D">Group D</option>
+                <option value="group E">Group E</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Parental Level of Education</label>
+            <select class="form-control" name="parental_level_of_education" placeholder="Enter your Parent Education" required>
+                <option class="placeholder" selected disabled value="">Select Parent Education</option>
+                <option value="associate's degree">Associate's degree</option>
+                <option value="bachelor's degree">Bachelor's degree</option>
+                <option value="high school">High school</option>
+                <option value="master's degree">Master's degree</option>
+                <option value="some college">Some college</option>
+                <option value="some high school">Some high school</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Lunch Type</label>
+            <select class="form-control" name="lunch" placeholder="Enter your Lunch" required>
+                <option class="placeholder" selected disabled value="">Select Lunch Type</option>
+                <option value="free/reduced">Free/reduced</option>
+                <option value="standard">Standard</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Test preparation Course</label>
+            <select class="form-control" name="test_preparation_course" placeholder="Enter your Course" required>
+                <option class="placeholder" selected disabled value="">Select Test Course</option>
+                <option value="none">None</option>
+                <option value="completed">Completed</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Writing Score out of 100</label>
+            <input class="form-control" type="number" name="reading_score" placeholder="Enter your Reading score" min="0" max="100" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Reading Score out of 100</label>
+            <input class="form-control" type="number" name="writing_score" placeholder="Enter your Writing score" min="0" max="100" />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Maths Score" />
+        </div>
+    </form>
+    <h2>The prediction is {{ results }}</h2>
+   </div>
+</body>
+</html>
