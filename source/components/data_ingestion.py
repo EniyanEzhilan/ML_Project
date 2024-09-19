@@ -30,7 +30,7 @@ class DataIngestion:
         try:
             
             logging.info('Read the dataset as dataframe')
-            df=pd.read_csv(r"D:\ML_Project\Notebook\Dataset\stud.csv")
+            df=pd.read_csv(r"D:\Student_Performance_Prediction\Notebook\Dataset\stud.csv")
             
             logging.info('Read the dataset as dataframe')
 
