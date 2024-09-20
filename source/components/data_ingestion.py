@@ -1,8 +1,19 @@
 import os
 import sys
+current_directory =os.getcwd()
+
+
+# Append the current directory to sys.path
+if current_directory not in sys.path:
+    sys.path.append(current_directory)
+
+# print("Current directory added to sys.path:", current_directory)
+# print("Updated sys.path:", sys.path)
 from source.exception import CustomException
 from source.logger import logging
 import pandas as pd
+# print(os.getcwd())
+
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
