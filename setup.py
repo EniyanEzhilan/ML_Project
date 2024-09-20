@@ -20,7 +20,7 @@ def get_requirements(file_path:str)->List[str]:
     return requirements
 
 setup(
-name="ML_Project",
+name="Student_Performance_Prediction",
 version="0.0.1",
 author="EniyanEzhilan",
 author_email="eniyanezhilan101@gmail.com",
