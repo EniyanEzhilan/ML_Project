@@ -5,7 +5,7 @@ from catboost import CatBoostRegressor
 from sklearn.ensemble import AdaBoostRegressor,GradientBoostingRegressor,RandomForestRegressor
 
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, accuracy_score
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
 from xgboost import XGBRegressor
@@ -114,6 +114,9 @@ class ModelTrainer:
 
             r2_square = r2_score(y_test, predicted)
             return r2_square
+            # print(best_model)
+            # acc = accuracy_score(y_test,predicted)
+            # return acc
         
         except Exception as e:
             raise CustomException(e,sys)
